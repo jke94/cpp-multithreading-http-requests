@@ -1,16 +1,48 @@
-#include "SimpleHttpsFactory.h"
-#include <iostream>
 #include <chrono>
+#include <iostream>
 #include <memory>
+
+#include "ISimpleHTTPSApi.h"
+
+std::vector<std::string> urls = {
+    "https://jsonplaceholder.typicode.com/posts/41",
+    "https://jsonplaceholder.typicode.com/posts/2", 
+    "https://jsonplaceholder.typicode.com/posts/12",
+    "https://jsonplaceholder.typicode.com/posts/12",
+    "https://jsonplaceholder.typicode.com/posts/22",
+    "https://jsonplaceholder.typicode.com/posts/23",
+    "https://jsonplaceholder.typicode.com/posts/64",
+    "https://jsonplaceholder.typicode.com/posts/7qweq2",
+    "https://jsonplaceholder.typicode.com/posts/35",
+    "https://jsonplaceholder.typicode.com/posts/5",         
+    "https://jsonplaceholder.typicode.com/posts/54",
+    "https://jsonplaceholder.typicode.com/posts/23",
+    "https://jsonplaceholder.typicode.com/posts/164",
+    "https://jsonplaceholder.typicode.com/posts/72",
+    "https://jsonplaceholder.typicode.com/posts/35",
+    "https://jsonplaceholder.typicode.com/posts/58",
+    "https://jsonplaceholder.typicode.com/posts/12",
+    "https://jsonplaceholder.typicode.com/posts/2",
+    "https://jsonplaceholder.typicode.com/posts/4",
+    "https://jsonplaceholder.typicode.com/posts/52",
+    "https://jsonplaceholder.typicode.com/posts/24",
+    "https://jsonplaceholder.typicode.com/posts/24",
+    "https://jsonplaceholder.typicode.com/posts/54",
+    "https://jsonplaceholder.typicode.com/posts/54",
+    "https://jsonplaceholder.typicode.com/posts/23",
+    "https://jsonplaceholder.typicode.com/posts/64",
+    "https://jsonplaceholder.typicode.com/posts/7qweq2",
+    "https://jsonplaceholder.typicode.com/posts/35",
+    "https://jsonplaceholder.typicode.com/posts/5",      
+};
 
 int main() 
 {
     auto start = std::chrono::steady_clock::now();
 
-    SimpleHttpsFactory simpleHttpsClientFactory;
+    initializeLibCurl();
     
-    std::shared_ptr<ISimpleHTTPSApi> client = simpleHttpsClientFactory.createSimpleHttpsClient();
-    std::vector<std::string> urls = simpleHttpsClientFactory.createVectorOfUrls();
+    std::shared_ptr<ISimpleHTTPSApi> client = createSimpleHttpsClient();
     std::cout << "Size of urls vector: " << urls.size() << std::endl;
 
     std::vector<HttpRequestResponse> responses;
@@ -29,7 +61,7 @@ int main()
         std::endl;
     }
 
-    client->finalizeSimpleHttps();
+    cleanupLibCurl();
     
     auto end = std::chrono::steady_clock::now();
     auto diff = end - start;

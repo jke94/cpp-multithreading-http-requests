@@ -2,6 +2,9 @@
 #define SIMPLE_HTTPS_FACTORY_H
 
 #include <memory>
+#include <string>
+#include <vector>
+
 #include "ISimpleHTTPSApi.h"
 
 class SimpleHttpsFactory
@@ -11,7 +14,6 @@ public:
     ~SimpleHttpsFactory() = default;
 
     std::shared_ptr<ISimpleHTTPSApi> createSimpleHttpsClient();
-    std::vector<std::string> createVectorOfUrls();
 };
 
 #endif // SIMPLE_HTTPS_FACTORY_H
