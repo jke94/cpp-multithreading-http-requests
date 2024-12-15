@@ -48,3 +48,6 @@ main
 
 # Valgrind output file txt.
 valgrind-out.txt
+
+# Unit Tests Executable
+mainUnitTests
