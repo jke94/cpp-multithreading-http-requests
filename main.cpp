@@ -50,9 +50,10 @@ int main()
 
     for (size_t i = 0; i < responses.size(); ++i) 
     {
-        std::cout << "Response from " << urls[i] << std::endl;
+        std::cout << "URL " << i + 1 <<": Response from " << urls[i] << std::endl;
         std::cout << 
         "\t[Content length: " << responses[i].response.length() <<  "]" <<
+        "[URL: " << responses[i].url <<  "]" <<
         "[HTTP Response status code: " << responses[i].httpResponseStatusCode << "]" <<
         "[TransferTotalTime: " << responses[i].transferTotalTime << "]" <<
         "[NumberOfSizeDownloaded: " << responses[i].numberOfSizeDownloaded << " (kbytes)]" <<

@@ -7,13 +7,17 @@
 
 #include "ISimpleHTTPSApi.h"
 
-class SimpleHttpsFactory
+namespace cppmultithreadingrequests
 {
-public:
-    SimpleHttpsFactory() = default;
-    ~SimpleHttpsFactory() = default;
+    class SimpleHttpsFactory
+    {
+    public:
+        SimpleHttpsFactory() = default;
+        ~SimpleHttpsFactory() = default;
 
-    std::shared_ptr<ISimpleHTTPSApi> createSimpleHttpsClient();
+        std::shared_ptr<ISimpleHTTPSApi> createSimpleHttpsClient();
+    };
+
 };
 
 #endif // SIMPLE_HTTPS_FACTORY_H
