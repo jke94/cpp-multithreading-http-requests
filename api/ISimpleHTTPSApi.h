@@ -4,14 +4,22 @@
 #include <string>
 #include <memory>
 #include <vector>
-#include <functional>
 
 struct HttpRequestResponse
 {
     std::string url;
+    std::string response;
     int httpResponseStatusCode;
+    double transferTotalTime;
+    // Number of size downloaded in kbytes.
+    double numberOfSizeDownloaded;
+    
+    // Schema used for the connection.
+    std::string schema;
+    
+    //Content type from the Content-Type header
+    std::string contentType;
 };
-
 
 class ISimpleHTTPSApi 
 {
@@ -21,10 +29,12 @@ protected:
 public:
 
     // Realizar una única petición GET
-    virtual bool get(const std::string& url, std::string& response) = 0;
+    virtual bool get(const std::string& url, HttpRequestResponse& response) = 0;
 
     // Realizar múltiples peticiones GET en paralelo
-    virtual void getMultiple(const std::vector<std::string>& urls, std::vector<std::string>& responses) = 0;
+    virtual void getMultiple(const std::vector<std::string>& urls, std::vector<HttpRequestResponse>& responses) = 0;
+
+    virtual void finalizeSimpleHttps() = 0;
 };
 
 std::shared_ptr<ISimpleHTTPSApi> createHttpsClient();
