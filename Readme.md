@@ -76,7 +76,7 @@ URL 28: Response from https://jsonplaceholder.typicode.com/posts/35
 URL 29: Response from https://jsonplaceholder.typicode.com/posts/5
         [Content length: 225][URL: https://jsonplaceholder.typicode.com/posts/5][HTTP Response status code: 200][TransferTotalTime: 0.928881][NumberOfSizeDownloaded: 0.225 (kbytes)][Schema: HTTPS][Content-Type Header: application/json; charset=utf-8]
 Program execution duration time: 1336 (milliseconds)
-javi@DESKTOP-2RMU1LD:/mnt/j/Repositories/cpp-multithreading-http-requests$
+$
 ```
 
 ## How to build and run unit tests

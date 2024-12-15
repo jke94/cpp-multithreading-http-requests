@@ -3,7 +3,7 @@
 g++ -std=c++11                      \
     -I ./include                    \
     -I ./api                        \
-    ./main.cpp                      \
+    ./client/main.cpp               \
     ./src/SimpleHTTPS.cpp           \
     ./src/SimpleHttpsFactory.cpp    \
     ./src/SimpleHTTPSApi.cpp        \
